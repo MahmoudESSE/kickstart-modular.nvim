@@ -66,7 +66,7 @@ return {
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
@@ -112,6 +112,14 @@ return {
           { name = 'path' },
         },
       }
+
+      vim.api.nvim_create_autocmd('BufRead', {
+        group = vim.api.nvim_create_augroup('CmpSourceCargo', { clear = true }),
+        pattern = 'Cargo.toml',
+        callback = function()
+          cmp.setup.buffer { sources = { { name = 'crates' } } }
+        end,
+      })
     end,
   },
 }

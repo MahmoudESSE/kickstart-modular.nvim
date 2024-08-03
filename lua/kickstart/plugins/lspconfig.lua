@@ -178,7 +178,8 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-
+        marksman = {},
+        bashls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
