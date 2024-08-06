@@ -1,8 +1,10 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
+vim.g.neo_tree_enabled = true
 return {
   'nvim-neo-tree/neo-tree.nvim',
+  enabled = vim.g.neo_tree_enabled,
   version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
